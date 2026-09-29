@@ -70,7 +70,10 @@ public class SlingShot : MonoBehaviour
             projRB.isKinematic = false;
             projRB.collisionDetectionMode = CollisionDetectionMode.Continuous; // Set collision detection mode to Continuous. There are other modes.
             projRB.velocity = -mouseDelta * velocityMult; // Apply the velocity multiplier to the projectile's velocity
+            FollowCam.POI = projectile; // Set the FollowCamera's POI to the launched projectile
             projectile = null; // Clear the reference to the projectile after launching
         }
+
+
     }
 }
