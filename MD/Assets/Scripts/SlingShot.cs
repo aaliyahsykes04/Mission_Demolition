@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.IO.IsolatedStorage;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SlingShot : MonoBehaviour
 {
     public GameObject launchPoint;
     public GameObject prefabProjectile;
     public float velocityMult = 10f; // Adjust the velocity multiplier as needed
+    public GameObject projLinePrefab;
     public Vector3 launchPos;
     public GameObject projectile;
     public bool aimingMode;
+
 
     private void Awake()
     {
@@ -71,6 +73,7 @@ public class SlingShot : MonoBehaviour
             projRB.collisionDetectionMode = CollisionDetectionMode.Continuous; // Set collision detection mode to Continuous. There are other modes.
             projRB.velocity = -mouseDelta * velocityMult; // Apply the velocity multiplier to the projectile's velocity
             FollowCam.POI = projectile; // Set the FollowCamera's POI to the launched projectile
+            Instantiate<GameObject>(projLinePrefab, projectile.transform);
             projectile = null; // Clear the reference to the projectile after launching
         }
 
