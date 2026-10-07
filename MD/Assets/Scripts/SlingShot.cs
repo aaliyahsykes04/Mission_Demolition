@@ -75,6 +75,7 @@ public class SlingShot : MonoBehaviour
             FollowCam.POI = projectile; // Set the FollowCamera's POI to the launched projectile
             Instantiate<GameObject>(projLinePrefab, projectile.transform);
             projectile = null; // Clear the reference to the projectile after launching
+            Mission_Demolition.SHOT_FIRED(); // Call the static method to indicate a shot has been fired
         }
 
 
